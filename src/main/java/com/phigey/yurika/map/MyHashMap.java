@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -631,6 +632,7 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
         threshold = newThr;
         @SuppressWarnings({"rawtypes", "unchecked"})
         Node<K, V>[] newTab = (Node<K, V>[]) new Node[newCap];
+        markResize();
         table = newTab;
         if (oldTab != null) {
             for (int j = 0; j < oldCap; ++j) {
@@ -675,9 +677,18 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
                 }
             }
         }
+
+        return newTab;
+    }
+
+    private void markResize(){
         ++ RESIZE_TIMES;
         System.out.println("扩容次数: " + RESIZE_TIMES);
-        return newTab;
+        if (null != table) {
+            System.out.println("数组大小: " + table.length);
+        } else {
+            System.out.println("数组大小: " + 0);
+        }
     }
 
     /**
@@ -690,12 +701,6 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
         if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY) {
             resize();
         } else if ((e = tab[index = (n - 1) & hash]) != null) {
-            System.out.println(e);
-            System.out.println("===============================");
-            System.out.println("元素个数: " + size);
-            System.out.println("数组长度: " + table.length);
-            System.out.println("转换红黑树");
-            System.out.println("===============================");
             TreeNode<K, V> hd = null, tl = null;
             do {
                 TreeNode<K, V> p = replacementTreeNode(e, null);
@@ -1966,6 +1971,7 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
          * @return root of tree
          */
         final void treeify(Node<K, V>[] tab) {
+            System.out.println("转为红黑树");
             TreeNode<K, V> root = null;
             for (TreeNode<K, V> x = this, next; x != null; x = next) {
                 next = (TreeNode<K, V>) x.next;

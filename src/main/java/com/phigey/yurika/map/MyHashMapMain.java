@@ -29,7 +29,8 @@ public class MyHashMapMain {
     public static void main(String[] args) {
         MyHashMap hashMap = new MyHashMap();
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("put: " + i);
             hashMap.put(new HashZeroEntity(i, "s" + i, 0.1f), i);
         }
 
