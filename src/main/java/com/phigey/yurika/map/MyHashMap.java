@@ -524,6 +524,9 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
      * previously associated <tt>null</tt> with <tt>key</tt>.)
      */
     public V put(K key, V value) {
+        if (null != table) {
+            System.out.println("table length: " + table.length);
+        }
         return putVal(hash(key), key, value, false, true);
     }
 
@@ -632,8 +635,8 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
         threshold = newThr;
         @SuppressWarnings({"rawtypes", "unchecked"})
         Node<K, V>[] newTab = (Node<K, V>[]) new Node[newCap];
-        markResize();
         table = newTab;
+        markResize();
         if (oldTab != null) {
             for (int j = 0; j < oldCap; ++j) {
                 Node<K, V> e;
