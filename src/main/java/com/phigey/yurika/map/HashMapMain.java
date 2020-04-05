@@ -13,7 +13,7 @@ public class HashMapMain {
 
         HashMap hashMap = new HashMap();
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             hashMap.put(new HashZeroEntity(i, "s" + i, 0.1f), i);
         }
 
