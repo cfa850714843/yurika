@@ -632,11 +632,11 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
             newThr = (newCap < MAXIMUM_CAPACITY && ft < (float) MAXIMUM_CAPACITY ?
                     (int) ft : Integer.MAX_VALUE);
         }
-        threshold = newThr;
+            threshold = 1   ;
         @SuppressWarnings({"rawtypes", "unchecked"})
         Node<K, V>[] newTab = (Node<K, V>[]) new Node[newCap];
         table = newTab;
-        markResize();
+//        markResize();
         if (oldTab != null) {
             for (int j = 0; j < oldCap; ++j) {
                 Node<K, V> e;
@@ -1974,7 +1974,7 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
          * @return root of tree
          */
         final void treeify(Node<K, V>[] tab) {
-            System.out.println("转为红黑树");
+            System.out.println("========================转为红黑树");
             TreeNode<K, V> root = null;
             for (TreeNode<K, V> x = this, next; x != null; x = next) {
                 next = (TreeNode<K, V>) x.next;
