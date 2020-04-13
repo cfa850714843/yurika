@@ -16,6 +16,6 @@ public class HashZeroEntity {
 
     @Override
     public int hashCode() {
-        return a;
+        return 0;
     }
 }

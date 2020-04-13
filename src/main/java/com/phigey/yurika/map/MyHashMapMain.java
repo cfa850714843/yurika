@@ -28,7 +28,7 @@ import com.phigey.yurika.entity.HashZeroEntity;
 public class MyHashMapMain {
     public static void main(String[] args) {
         MyHashMap hashMap = new MyHashMap();
-        for (int i = 1; i < 10000; i++) {
+        for (int i = 1; i < 32; i++) {
             hashMap.put(new HashZeroEntity(i, "s" + i, 0.1f), i);
         }
 
