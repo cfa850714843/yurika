@@ -15,6 +15,9 @@ public class Food {
         this.price = price;
     }
 
+    public Food() {
+    }
+
     @Override
     public int hashCode() {
         return this.name.hashCode() + this.price.hashCode();

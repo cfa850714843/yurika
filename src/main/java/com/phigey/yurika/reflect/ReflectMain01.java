@@ -18,7 +18,5 @@ public class ReflectMain01 {
             e.printStackTrace();
         }
 
-
-
     }
 }
