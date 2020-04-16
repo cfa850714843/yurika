@@ -15,6 +15,12 @@ import com.phigey.yurika.entity.HashZeroEntity;
  * 转换红黑树
  * ===============================
  *
+ * ====================
+ * 转红黑树
+ * table长度 = 8388608
+ * 元素个数 = 5599273
+ * ====================
+ *
  * hash集中的情况下
  *
  * ===============================
@@ -28,7 +34,7 @@ import com.phigey.yurika.entity.HashZeroEntity;
 public class MyHashMapMain {
     public static void main(String[] args) {
         MyHashMap hashMap = new MyHashMap();
-        for (int i = 1; i < 32; i++) {
+        for (int i = 1; i < 10000000; i++) {
             hashMap.put(new HashZeroEntity(i, "s" + i, 0.1f), i);
         }
 

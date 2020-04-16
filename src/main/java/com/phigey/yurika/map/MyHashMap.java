@@ -524,9 +524,9 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
      * previously associated <tt>null</tt> with <tt>key</tt>.)
      */
     public V put(K key, V value) {
-        if (null != table) {
+        /*if (null != table) {
             System.out.println("table length: " + table.length);
-        }
+        }*/
         return putVal(hash(key), key, value, false, true);
     }
 
@@ -582,9 +582,6 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
                     e.value = value;
                 }
                 afterNodeAccess(e);
-                if (e instanceof TreeNode) {
-                    System.out.println("TreeNode");
-                }
                 return oldValue;
             }
         }
@@ -632,11 +629,11 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
             newThr = (newCap < MAXIMUM_CAPACITY && ft < (float) MAXIMUM_CAPACITY ?
                     (int) ft : Integer.MAX_VALUE);
         }
-            threshold = 1   ;
+        threshold = newThr   ;
         @SuppressWarnings({"rawtypes", "unchecked"})
-        Node<K, V>[] newTab = (Node<K, V>[]) new Node[newCap];
+            Node<K, V>[] newTab = (Node<K, V>[]) new Node[newCap];
         table = newTab;
-//        markResize();
+        markResize();
         if (oldTab != null) {
             for (int j = 0; j < oldCap; ++j) {
                 Node<K, V> e;
@@ -704,6 +701,11 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
         if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY) {
             resize();
         } else if ((e = tab[index = (n - 1) & hash]) != null) {
+            System.out.println("====================");
+            System.out.println("转红黑树");
+            System.out.println("table长度 = " + table.length);
+            System.out.println("元素个数 = " + size);
+            System.out.println("====================");
             TreeNode<K, V> hd = null, tl = null;
             do {
                 TreeNode<K, V> p = replacementTreeNode(e, null);
@@ -1974,7 +1976,6 @@ public class MyHashMap<K, V> extends MyAbstractMap<K, V>
          * @return root of tree
          */
         final void treeify(Node<K, V>[] tab) {
-            System.out.println("========================转为红黑树");
             TreeNode<K, V> root = null;
             for (TreeNode<K, V> x = this, next; x != null; x = next) {
                 next = (TreeNode<K, V>) x.next;
