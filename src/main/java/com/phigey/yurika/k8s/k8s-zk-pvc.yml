@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: zk-data1
+  namespace: tell
+spec:
+  capacity:
+    storge: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /home/docker/zk-cluster/zk1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: zk-data2
+  namespace: tell
+spec:
+  capacity:
+    storge: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /home/docker/zk-cluster/zk2
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: zk-data3
+  namespace: tell
+spec:
+  capacity:
+    storge: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /home/docker/zk-cluster/zk3
+

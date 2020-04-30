@@ -1,6 +1,7 @@
 package com.phigey.yurika.map;
 
 import com.phigey.yurika.entity.HashZeroEntity;
+import com.phigey.yurika.entity.SingleValueEntity;
 
 /**
  * @author cfa
@@ -10,9 +11,9 @@ import com.phigey.yurika.entity.HashZeroEntity;
  * 扩容21次, table长度为2的24次方
  *
  * ===============================
- * 元素个数: 9998880
- * 数组长度: 16777216
- * 转换红黑树
+ * - 元素个数: 9998880
+ * -  数组长度: 16777216
+ *  - 转换红黑树
  * ===============================
  *
  * ====================
@@ -34,8 +35,8 @@ import com.phigey.yurika.entity.HashZeroEntity;
 public class MyHashMapMain {
     public static void main(String[] args) {
         MyHashMap hashMap = new MyHashMap();
-        for (int i = 1; i < 10000000; i++) {
-            hashMap.put(new HashZeroEntity(i, "s" + i, 0.1f), i);
+        for (int i = 1; i < 100; i++) {
+            hashMap.put(new HashZeroEntity("s" + i), i);
         }
 
     }
