@@ -7,14 +7,14 @@ public class ReflectP1 {
 
     private int v1 = 3;
 
-    public void m1(){
+    public static void m1(){
         System.out.println("m1!");
     }
     @SuppressWarnings("dead!")
     public void m2(){
         System.out.println("m2!");
     }
-    public void m3(){
+    public final void m3(){
         System.out.println("m3!");
     }
     public void m4(){

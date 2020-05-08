@@ -14,7 +14,8 @@ public class UnsafeMain01 {
             unsafeField.setAccessible(true);
             Unsafe u = (Unsafe) unsafeField.get(null);
             Food obj = (Food) u.allocateInstance(Food.class);
-
+            obj.setName("rice");
+            obj.setPrice(1.5F);
             System.out.println(obj);
 
 
