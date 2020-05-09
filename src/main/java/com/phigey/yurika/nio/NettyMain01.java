@@ -1,20 +1,14 @@
 package com.phigey.yurika.nio;
 
-import java.nio.channels.Selector;
-
 /**
  * @author cfa
  */
 public class NettyMain01 {
-    public static void main(String[] args) {
-        try {
-
-            Selector selector = Selector.open();
-
-            selector.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+    public static void main(String[] args) throws Exception {
+        int port = 10034;
+        if (args.length > 0) {
+            port = Integer.parseInt(args[0]);
         }
-
+        new DiscardServer(port).run();
     }
 }

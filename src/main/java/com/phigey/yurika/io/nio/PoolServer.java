@@ -9,12 +9,12 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 public class PoolServer {
 
-    ExecutorService pool = Executors.newFixedThreadPool(50);
+    ThreadPoolExecutor pool = new ThreadPoolExecutor(50, 50,
+            0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
 
     private Selector selector;
     //中文测试

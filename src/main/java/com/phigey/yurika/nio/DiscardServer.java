@@ -21,8 +21,8 @@ public class DiscardServer {
     }
 
     public void run() throws Exception {
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup(2);
+        EventLoopGroup workerGroup = new NioEventLoopGroup(10);
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup)
@@ -45,11 +45,4 @@ public class DiscardServer {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        int port = 10034;
-        if (args.length > 0) {
-            port = Integer.parseInt(args[0]);
-        }
-        new DiscardServer(port).run();
-    }
 }
