@@ -36,9 +36,10 @@ public class DiscardServer {
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
 
-            ChannelFuture f = b.bind(port).sync();
-
-            f.channel().closeFuture().sync();
+            while (true) {
+                ChannelFuture f = b.bind(port).sync();
+                f.channel().closeFuture().sync();
+            }
         } finally {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
