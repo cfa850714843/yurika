@@ -2,3 +2,5 @@
 /target/
 .idea
 *.iml
+hadoop-conf
+/src/main/resources/hadoop-conf/

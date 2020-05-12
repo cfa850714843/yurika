@@ -1,6 +1,7 @@
 package com.phigey.yurika;
 
 
+
 /**
  * @author cfa
  */
@@ -8,8 +9,7 @@ package com.phigey.yurika;
 @SuppressWarnings("Main")
 public class MainApplication {
     public static void main(String[] args) {
-        for (int i = 0; i < 1; i++) {
-            System.out.println(String.format("%06d", i));;
-        }
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("a").append("a").append("a").append("a").append("a").append("a").append("a").append("a");
     }
 }
