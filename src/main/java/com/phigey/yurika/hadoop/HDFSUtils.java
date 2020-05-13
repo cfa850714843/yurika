@@ -29,7 +29,7 @@ public class HDFSUtils {
         System.setProperty("java.security.krb5.conf",
                 getPath("hadoop-conf/krb5.conf"));
         System.setProperty("javax.security.auth.useSubjectCredsOnly", "false");
-        // System.setProperty("sun.security.krb5.debug", "true");
+        /*System.setProperty("sun.security.krb5.debug", "true");*/
         try {
             UserGroupInformation.setConfiguration(conf);
             UserGroupInformation.loginUserFromKeytab("aps",
