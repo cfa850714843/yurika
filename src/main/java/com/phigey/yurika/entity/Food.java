@@ -56,4 +56,10 @@ public class Food {
     public void setPrice(Float price) {
         this.price = price;
     }
+
+    //overwrite
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("invoke finalize");
+    }
 }

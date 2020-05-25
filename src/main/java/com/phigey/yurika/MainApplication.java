@@ -1,6 +1,7 @@
 package com.phigey.yurika;
 
 
+import java.io.IOException;
 
 /**
  * @author cfa
@@ -8,8 +9,6 @@ package com.phigey.yurika;
 
 @SuppressWarnings("Main")
 public class MainApplication {
-    public static void main(String[] args) {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("a").append("a").append("a").append("a").append("a").append("a").append("a").append("a");
+    public static void main(String[] args) throws IOException, Exception {
     }
 }
