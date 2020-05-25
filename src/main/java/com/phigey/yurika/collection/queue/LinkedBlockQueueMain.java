@@ -9,10 +9,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class LinkedBlockQueueMain {
     public static void main(String[] args) {
 
-        LinkedBlockingQueue blockingQueue = new LinkedBlockingQueue<>();
-        LinkedBlockingDeque blockingDeque = new LinkedBlockingDeque<>();
+        LinkedBlockingQueue<String> blockingQueue = new LinkedBlockingQueue<>();
+        LinkedBlockingDeque<String> blockingDeque = new LinkedBlockingDeque<>();
 
-        blockingQueue.add("aa");
-        blockingDeque.add("aa");
+        blockingQueue.offer("aa");
+        blockingDeque.offer("aa");
     }
 }
